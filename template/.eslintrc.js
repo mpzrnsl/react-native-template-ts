@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: "@react-native-community",
+  extends: ["@react-native-community", "plugin:import/recommended", "plugin:import/typescript"],
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],
   overrides: [
@@ -16,5 +16,12 @@ module.exports = {
   rules: {
     "comma-dangle": [1, "never"],
     quotes: [1, "double", "avoid-escape"]
+  },
+  settings: {
+    "import/resolver": {
+      typescript: true,
+      node: true,
+      "babel-module": { allowExistingDirectories: true }
+    }
   }
 };
