@@ -1,0 +1,8 @@
+{
+  "name": "react-native-template-ts",
+  "version": "0.0.1",
+  "description": "React Native Template for Typescript",
+  "repository": "https://mpzrnsl@dev.azure.com/mpzrnsl/react-native-template-ts/_git/react-native-template-ts",
+  "author": "Phia Nasol <mpzrnsl@outlook.com>",
+  "license": "MIT"
+}
