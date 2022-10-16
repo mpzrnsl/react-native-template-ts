@@ -7,6 +7,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import Env from "react-native-config";
 import {
   FLUSH,
@@ -19,6 +20,7 @@ import {
   REHYDRATE
 } from "redux-persist";
 
+import api from "./api";
 import constants from "./constants";
 import reducer from "./reducer";
 
@@ -36,11 +38,13 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }
-    }),
+    }).concat(api.middleware),
   devTools: Env.ENV === "development"
 });
 
 const persistor = persistStore(store);
+
+setupListeners(store.dispatch);
 
 export { persistor, store };
 

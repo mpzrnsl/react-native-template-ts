@@ -1,8 +1,7 @@
 /**
  * ProjectName
  *
- * Author:
- * Company:
+ * Author: Phia Nasol
  *
  *
  */
