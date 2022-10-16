@@ -4,6 +4,18 @@ import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
 /**
+ * react-native-config
+ */
+
+project.ext.envConfigFiles = [
+    debug: ".env",
+    release: ".env.production",
+    staging: ".env.staging"
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
+/**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
  * These basically call `react-native bundle` with the correct arguments during the Android build
@@ -80,6 +92,14 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 project.ext.react = [
     enableHermes: true,  // clean and rebuild if changing
+    bundleInStaging: true,
+    devDisabledInStaging: true,
+    hermesFlagsForVariant: {
+        def variant -> variant.name.toLowerCase().contains("release") || variant.name.toLowerCase().contains("staging") ? ["-O", "-output-source-map"] : []
+    },
+    deleteDebugFilesForVariant: {
+        def variant -> variant.name.toLowerCase().contains("release") || variant.name.toLowerCase().contains("staging")
+    },
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -228,6 +248,10 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+        staging {
+            initWith release
+            matchingFallbacks = ["release"]
         }
     }
 

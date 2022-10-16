@@ -4,6 +4,15 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:clean": "cd android && ./gradlew clean && cd ..",
+    "android:staging": "react-native run-android --variant=staging",
+    "android:staging:install": "cd android && ./gradlew installStaging && cd ..",
+    "android:staging:bundle": "cd android && ./gradlew bundleStaging && cd ..",
+    "android:staging:assemble": "cd android && ./gradlew assembleStaging && cd ..",
+    "android:release": "react-native run-android --variant=release",
+    "android:release:install": "cd android && ./gradlew installRelease && cd ..",
+    "android:release:bundle": "cd android && ./gradlew bundleRelease && cd ..",
+    "android:release:assemble": "cd android && ./gradlew assembleRelease && cd ..",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
@@ -13,7 +22,8 @@
   },
   "dependencies": {
     "react": "18.1.0",
-    "react-native": "0.70.3"
+    "react-native": "0.70.3",
+    "react-native-config": "^1.4.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
