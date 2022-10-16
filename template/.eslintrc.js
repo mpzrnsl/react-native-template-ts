@@ -15,7 +15,8 @@ module.exports = {
   ],
   rules: {
     "comma-dangle": [1, "never"],
-    quotes: [1, "double", "avoid-escape"]
+    quotes: [1, "double", "avoid-escape"],
+    "import/no-unresolved": [2, { caseSensitive: true }]
   },
   settings: {
     "import/resolver": {
