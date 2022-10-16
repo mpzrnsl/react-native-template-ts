@@ -14,6 +14,8 @@
     "android:release:bundle": "cd android && ./gradlew bundleRelease && cd ..",
     "android:release:assemble": "cd android && ./gradlew assembleRelease && cd ..",
     "ios": "react-native run-ios",
+    "ios:staging": "react-native run-ios --configuration Staging",
+    "ios:release": "react-native run-ios --configuration Release",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",

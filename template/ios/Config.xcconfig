@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  ProjectName
+//
+//  Created by Phia Nasol on 10/16/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include? "tmp.xcconfig"

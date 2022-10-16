@@ -68,3 +68,6 @@ env
 .env
 *.env
 .env.*
+
+# react-native-config
+ios/tmp.xcconfig
