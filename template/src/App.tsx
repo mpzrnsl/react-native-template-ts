@@ -16,7 +16,11 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import { persistor, store } from "@core";
 
+import { useLifecycleLogger } from "@core/hooks";
+
 const App = () => {
+  useLifecycleLogger(App.name);
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
