@@ -6,9 +6,11 @@ module.exports = {
       {
         root: ["./src/"],
         alias: {
+          "@core": "./src/core",
           tests: "./tests"
         }
       }
-    ]
+    ],
+    "react-native-reanimated/plugin"
   ]
 };

@@ -5,7 +5,14 @@ module.exports = {
   singleQuote: false,
   trailingComma: "none",
   printWidth: 100,
-  importOrder: ["^\\u0000", "^(react$)|^(react-native$)", "<THIRD_PARTY_MODULES>", "^[./]"],
+  importOrder: [
+    "^\\u0000",
+    "^(react$)|^(react-native$)",
+    "<THIRD_PARTY_MODULES>",
+    "^@core$",
+    "^@core/(.*)$",
+    "^[./]"
+  ],
   importOrderBuiltinModulesToTop: true,
   importOrderCaseInsensitive: true,
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
