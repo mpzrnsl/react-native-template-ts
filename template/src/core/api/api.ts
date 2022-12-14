@@ -17,7 +17,11 @@ const api = createApi({
   reducerPath: "api",
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === REHYDRATE) {
-      return action.payload[reducerPath];
+      if (action.payload) {
+        return action.payload[reducerPath];
+      }
+
+      return action.payload;
     }
   },
   endpoints: () => ({})
